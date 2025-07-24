@@ -77,11 +77,23 @@ WSGI_APPLICATION = 'locallibrary.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': BASE_DIR / 'db.sqlite3',
+    #},
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'mssql',  # For mssql-django
+        'NAME': 'django_db',
+        'USER': 'django',
+        'PASSWORD': 'Admin_1234',
+        'HOST': 'mipserv',  # Or IP address
+        'PORT': '',  # Default SQL Server port, or leave blank if not needed
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server', # Or other appropriate driver
+        },
+    },
 }
+
 
 
 # Password validation
